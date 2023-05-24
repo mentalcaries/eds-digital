@@ -12,6 +12,9 @@ const FormSchema = z.object({
   homePhone: z.number(),
   workPhone: z.number(),
   email: z.string(),
+  occupation: z.string(),
+  employer: z.string(),
+  insurance: z.string(),
   isAdmin: z.boolean(),
 });
 
@@ -29,7 +32,14 @@ const Register = () => {
       lastName: '',
       dateOfBirth: new Date(),
       sex: '',
+      maritalStatus: '',
+      mobilePhone: 868,
+      homePhone: 868,
+      workPhone: 868,
       email: '',
+      occupation: '',
+      employer: '',
+      insurance:'',
       isAdmin: true,
     },
   });
@@ -141,14 +151,45 @@ const Register = () => {
             })}
           />
         </div>
-
-
-
         <div>
           <label htmlFor="email">Email</label>
-          <input id="email" {...register('email')} placeholder='hello@smile.com' />
+          <input
+            id="email"
+            {...register('email')}
+            placeholder="hello@smile.com"
+          />
           {errors?.email?.message && <p>{errors.email.message}</p>}
         </div>
+        <div>
+          <label htmlFor="occupation">Occupation</label>
+          <input
+            id="occupation"
+            {...register('occupation')}
+            placeholder="Chef"
+          />
+          {/* {errors?.email?.message && <p>{errors.email.message}</p>} */}
+        </div>
+        <div>
+          <label htmlFor="employer">Employer</label>
+          <input
+            id="employer"
+            {...register('employer')}
+            placeholder="Self"
+          />
+          {/* {errors?.email?.message && <p>{errors.email.message}</p>} */}
+        </div>
+
+        <div>
+          <label htmlFor="insurance">Insurance Provider</label>
+          <input
+            id="insurance"
+            {...register('insurance')}
+            placeholder="Sagicor"
+          />
+          {/* {errors?.email?.message && <p>{errors.email.message}</p>} */}
+        </div>
+
+
         <div>
           <label htmlFor="isAdmin">IsAdmin</label>
           <input id="isAdmin" type="checkbox" {...register('isAdmin')} />
